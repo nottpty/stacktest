@@ -21,7 +21,7 @@ public class StackTest {
 	@Before
 	public void setUp() {
 		StackFactory.setStackType( 0 );
-//		StackFactory.setStackType( 1 );
+		StackFactory.setStackType( 1 );
 		stack = StackFactory.makeStack( 2 );
 	}
 	
@@ -46,13 +46,18 @@ public class StackTest {
 		assertNull( stack.peek() );
 		stack.push("a");
 		assertEquals("a", stack.peek());
+		assertEquals("a", stack.peek());
 		stack.push("b");
 		assertEquals("b", stack.peek());
+		assertEquals("b", stack.peek());
+		stack.push("c");
+		stack.push("d");
+		assertEquals( "b", stack.peek());
 		
 	}
 	
 	@Test
-	public void testStackFull() {
+	public void testStackIsFull() {
 		stack.push("a");
 		assertFalse(stack.isFull());
 		stack.push("b");
@@ -69,6 +74,19 @@ public class StackTest {
 	
 	@Test
 	public void testSize() {
+		assertEquals( 0, stack.size());
+		stack.push("1");
+		assertEquals( 1, stack.size());
+		stack.push("2");
+		assertEquals( 2, stack.size());
+		stack.push("3");
+		assertEquals( 2, stack.size());
+		stack.pop();
+		assertEquals( 1, stack.size());
+	}
+	
+	@Test
+	public void testCapacity() {
 		stack.push("c");
 		assertEquals( 2, stack.capacity() );
 		stack.peek();
@@ -77,17 +95,13 @@ public class StackTest {
 		assertEquals( 2, stack.capacity() );
 	}
 	
+	/** push() should throw an exception if push null argument */
 	@Test(expected = IllegalArgumentException.class)
 	public void testPushNull() {
 		stack.push( null );
 	}
 	
-	@Test(expected = java.util.EmptyStackException.class)
-	public void testPopStackEmpty() {
-		assertTrue( stack.isEmpty() );
-		stack.pop();
-	}
-	
+	/** push() should throw an exception if stack is full */
 	@Test(expected = IllegalStateException.class)
 	public void testOverFlow() {
 		stack.push( "hello" );

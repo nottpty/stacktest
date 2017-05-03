@@ -1,6 +1,7 @@
 package ku.util;
 
 /**
+ * Dummy stack for implementation by yourself.
  * 
  * @author Patinya Yongyai
  *
