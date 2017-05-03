@@ -2,14 +2,17 @@ package ku.util;
 
 import static org.junit.Assert.*;
 
-import java.awt.geom.IllegalPathStateException;
 
 import org.junit.Assume;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
+/**
+ * JUnit test for checking correctness of stack.
+ * 
+ * @author Patinya Yongyai
+ *
+ */
 public class StackTest {
 
 	private Stack stack;

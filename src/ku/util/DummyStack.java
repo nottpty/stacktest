@@ -1,5 +1,10 @@
 package ku.util;
 
+/**
+ * 
+ * @author Patinya Yongyai
+ *
+ */
 public class DummyStack implements Stack<String> {
 	private int capacity;
 	
