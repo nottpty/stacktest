@@ -23,7 +23,7 @@ Method                  | Type 0 | Type 1
 7.) size()              |        |    x
 
 
-'x' is a marker for checking which type in StackFactory is a failure.
+* 'x' is a marker for checking which type in StackFactory is a failure.
 
 ## Author
 * **Patinya Yongyai**
